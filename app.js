@@ -8,7 +8,7 @@ app.set('view engine', 'ejs');
 // console.log('Static Directory: ' + __dirname + '/colorGame');
 
 app.use(express.static(__dirname + '/colorGame'));
-
+app.use("/ToDoList", express.static(__dirname + '/ToDoList'));
 
 app.get('/', function (req, res) {
 	res.render('home');
