@@ -9,6 +9,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/colorGame'));
 app.use("/ToDoList", express.static(__dirname + '/ToDoList'));
+app.use("/PatatabClone", express.static(__dirname + '/PatatabClone'));
 
 app.get('/', function (req, res) {
 	res.render('home');
