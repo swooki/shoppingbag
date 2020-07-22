@@ -19,6 +19,20 @@ app.get('/about', function (req, res) {
 	res.render('about');
 });
 
+// adds url pattern /repeat/:outputString/:repeat
+app.get('/repeat/:string/:repeat', function(req, res){
+	var outputString = '';
+	var repeatNum = parseInt(req.params.repeat);
+	for(var i=0; i<repeatNum; i++){ 
+		outputString += (req.params.string + " "); 
+	}
+	res.send(outputString);
+});
+
+app.get("*", function(req, res){
+	res.send("You are a star!");
+});
+
 app.listen(process.env.PORT, function () {
 	console.log('Server Has Started on port ' + process.env.PORT);
 });
