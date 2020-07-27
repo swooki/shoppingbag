@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+
+<h1>
+	You fell in love with <%= thingVar.toUpperCase() %>
+</h1>
+	<% if(thingVar.toLowerCase() === 'sung') { 
+		for(var i=0; i<times; i++) {
+	%>	
+	<p>
+		Good choice, <%= thingVar %> is the best	
+	</p>
+	<% }} %>
+
+<%- include("partials/footer") %>
+
+
+

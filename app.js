@@ -24,7 +24,7 @@ app.get('/repeat/:string/:repeat', function(req, res){
 	var outputString = '';
 	var repeatNum = parseInt(req.params.repeat);
 	for(var i=0; i<repeatNum; i++){ 
-		outputString += (req.params.string + " "); 
+		outputString += (req.params.string + "<hr>"); 
 	}
 	res.send(outputString);
 });
