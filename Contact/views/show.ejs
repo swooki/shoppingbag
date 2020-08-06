@@ -1,0 +1,19 @@
+<%- include("partials/header") %>
+<div class="container">
+	
+	<h1>
+		Show Page
+	</h1>
+	
+	<h5>
+		<%= contact.firstName%> <%= contact.lastName%>
+	</h5>
+	<p><img class="card-img-top" src="<%= contact.image %>"></p>
+	<p><%=contact.city%></p>
+	<p><%=contact.description%></p>
+
+<ul>
+	<li><a href="/contacts">Contacts</a></li>
+</ul>
+</div>
+<%- include("partials/footer") %>
