@@ -1,0 +1,11 @@
+body {
+	font-family: 'Gamja Flower', cursive;
+}
+
+.jumbotron {
+	margin-top: 2.0em;
+}
+
+#delete {
+	display:inline;
+}

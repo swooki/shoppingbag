@@ -1,0 +1,29 @@
+<%- include("../partials/header") %>
+<div class="container main"> 
+<div class="container">
+	<h1 style="text-align:center">새로운 기도제목 올리기</h1>
+	<div class="row">
+		<div style="width:60%; margin:25px auto">
+			<form action="/prayers" method="POST"> 
+				<div class="form-group">
+				    <label for="prayerTitle">제목</label>
+					<input id="prayerTitle" class="form-control" type="text" placeholder="기도 제목" name="prayer[title]">
+				</div>
+				<div class="form-group">
+					<label for="prayerImage">사진주소</label>
+					<input id="prayerImage" class="form-control" type="text" placeholder="사진 주소를 입력하세요" name="prayer[image]">
+				</div>
+				<div class="form-group">
+				    <label for="prayerPrayer">기도내용</label>
+					<textarea id="prayerPrayer" class="form-control" name="prayer[prayer]">함께 기도할 내용을 적어주세요</textarea>
+				</div>
+				<div class="form-group">
+				<button class="btn btn-primary btn-block">입력하기</button>
+				</div>
+			</form>
+			<a href="/prayers">목록으로...</a>
+		</div>
+	</div>
+</div>
+</div>
+<%- include("../partials/footer") %>

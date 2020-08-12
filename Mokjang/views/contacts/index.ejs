@@ -1,19 +1,13 @@
-<%- include("partials/header") %>
+<%- include("../partials/header") %>
 
 <div class='container'>
 <header class='jumbotron'>
 	<div class="container">
-		<h1>Welcome to SimpleContact!</h1>
+		<h1><i class="far fa-address-card"></i> Welcome to SimpleContact!</h1>
 		<p>We build bridges between different worlds!</p>
 		<p><a class="btn btn-outline-primary" href="/contacts/new">Add a New Contact</a></p>
 	</div>
 </header>
-	
-<div class="row">
-	<div class="col-12">
-		<h3>We are a family!</h3>
-	</div>
-</div>
 	
 <div class="row">
 	<% contacts.forEach(function(contact){ %>
@@ -35,4 +29,4 @@
 </div>
 	
 </div>
-<%- include("partials/footer") %>
+<%- include("../partials/footer") %>

@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+<div class="container">
+	<div class="card" style="width:60%; margin:25px auto">
+	  <img src="<%= prayer.image %>" class="card-img-top" alt="prayer">
+		<p class="card-text"><%=prayer.created.toDateString()%></p>
+      <div class="card-body">
+	  	<h5 class="card-title"><%= prayer.title%></h5>
+		<p class="card-text"><%-prayer.prayer%></p>
+	  </div>
+	  <div class="card-body">
+		<a class="btn btn-outline-primary" href="/prayers">Go to list...</a>
+		<a class="btn btn-outline-info" href="/prayers/<%=prayer._id%>/edit">Edit</a>
+		<form id="delete" action="/prayers/<%=prayer._id%>?_method=DELETE" method="POST"> 
+			<button class="btn btn-outline-danger">Delete</button>
+		</form>
+	  </div>
+	</div>
+</div>
+<%- include("../partials/footer") %>
