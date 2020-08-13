@@ -14,6 +14,12 @@
 			<button class="btn btn-outline-danger">Delete</button>
 		</form>
 	  </div>
-	</div>
+	  <% prayer.comments.forEach(function(comment){ %>
+      <div class="card-body">
+	  	<h5 class="card-title"><%= comment.author%></h5> <%= comment.text%>
+	  </div>
+	  <% }); %>
+		
+	</div> 
 </div>
 <%- include("../partials/footer") %>
