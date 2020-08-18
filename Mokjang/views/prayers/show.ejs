@@ -13,7 +13,9 @@
 		<form id="delete" action="/prayers/<%=prayer._id%>?_method=DELETE" method="POST"> 
 			<button class="btn btn-outline-danger">Delete</button>
 		</form>
-	  </div>
+		<a class="btn btn-outline-info" href="/prayers/<%=prayer._id%>/comments/new">Add New Comment</a>
+
+	</div>
 	  <% prayer.comments.forEach(function(comment){ %>
       <div class="card-body">
 	  	<h5 class="card-title"><%= comment.author%></h5> <%= comment.text%>

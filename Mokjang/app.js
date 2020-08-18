@@ -51,6 +51,11 @@ app.get("/contacts", function(req, res){
 	});
 });
 
+// "New" route
+app.get("/contacts/new", function(req, res){
+	res.render("contacts/new");
+});
+
 // "Create" route
 app.post("/contacts", function(req, res){
 	var firstname = req.body.firstname;
@@ -68,11 +73,6 @@ app.post("/contacts", function(req, res){
 		}
 	});
 })
-
-// "New" route
-app.get("/contacts/new", function(req, res){
-	res.render("contacts/new");
-});
 
 // "Show" /contacts/:id route
 app.get("/contacts/:id", function(req, res){
@@ -128,7 +128,6 @@ app.get("/prayers/:id", function(req, res){
 			if(err) {
 				res.redirect("/prayers");
 			} else {
-				console.log(found);
 				res.render("prayers/show", {prayer:found});
 			}
 		});
@@ -167,6 +166,39 @@ app.delete("/prayers/:id", function(req, res){
 		 }
 	});
 });
+
+//==  P R A Y E R  C O M M E N T  ==============================================
+
+// "New" route
+app.get("/prayers/:id/comments/new", function(req, res){
+	Prayer.findById(req.params.id, function(err, prayer){
+		 if(err) {
+		 	res.redirect("/prayers/" + req.params.id);
+		 } else {
+			res.render("comments/new", {prayer:prayer});
+		 }
+	})
+});
+
+// "Create" route
+app.post("/prayers/:id/comments", function(req, res){
+	Prayer.findById(req.params.id, function(err, prayer){
+		 if(err) {
+		 	res.redirect("/prayers/" + req.params.id);
+		 } else {
+			 // Create a new comment 
+			 Comment.create(req.body.comment, function(err, comment){
+				 if(err) {
+					 console.log(err);
+				 } else {
+					prayer.comments.push(comment);
+					prayer.save(); 
+					res.redirect("/prayers/" + prayer._id);
+				 }
+			 } )
+		 }
+	})
+})
 
 
 // Listener 
