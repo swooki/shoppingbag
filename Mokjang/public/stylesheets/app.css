@@ -10,3 +10,7 @@ body {
 #delete {
 	display:inline;
 }
+
+.card {
+	margin: 1.0em;
+}

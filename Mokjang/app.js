@@ -15,7 +15,8 @@ const Comment = require('./models/comment');
 const seedDB = require('./seeds');
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
@@ -32,7 +33,7 @@ mongoose.connect("mongodb://localhost:27017/" + databaseName, {
 
 
 //==  S E E D I N G  ===========================================================
-seedDB();
+//seedDB();
 
 //==  L A N D I N G  ===========================================================
 app.get("/", function(req, res) {
