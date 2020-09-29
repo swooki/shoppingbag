@@ -59,12 +59,15 @@ app.get("/contacts/new", function(req, res){
 
 // "Create" route
 app.post("/contacts", function(req, res){
-	var firstname = req.body.firstname;
-	var lastname = req.body.lastname;
+	var firstName = req.body.firstName;
+	var lastName = req.body.lastName;
+	var streetAddress = req.body.streetAddress;
 	var city = req.body.city;
+	var state = req.body.state;
+	var zip = req.body.zip;
 	var desc = req.body.description;
 	var image = req.body.image;
-	var newContact = {firstName:firstname, lastName: lastname, city: city, description:desc, image: image};
+	var newContact = {firstName:firstName, lastName: lastName, streetAddress: streetAddress, city: city, state:state, zip:zip, description:desc, image: image};
 	
 	Contact.create(newContact, function(err, newlyCreated){
 		if(err) {
@@ -86,6 +89,16 @@ app.get("/contacts/:id", function(req, res){
 	});
 });
 
+// "Delete" route
+app.delete("/contacts/:id", function(req, res){
+	Contact.findByIdAndRemove (req.params.id, function(err){
+		 if(err) {
+		 	res.redirect("/contacts");
+		 } else {
+		 	res.redirect("/contacts");
+		 }
+	});
+});
 
 //==  P R A Y E R  =============================================================
 	// title: String,

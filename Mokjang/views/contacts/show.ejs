@@ -1,19 +1,35 @@
 <%- include("../partials/header") %>
 <div class="container">
-	
-	<h1>
-		Show Page
-	</h1>
-	
-	<h5>
-		<%= contact.firstName%> <%= contact.lastName%>
-	</h5>
-	<p><img class="card-img-top" src="<%= contact.image %>"></p>
-	<p><%=contact.city%></p>
-	<p><%=contact.description%></p>
-
-<ul>
-	<li><a href="/contacts">Contacts</a></li>
-</ul>
-</div>
+	<div class="row">
+		<div class="col-md-3">
+			<p class="lead">Contact</p>			
+			<div class="list-group">
+				<li class="list-group-item active"> list item 1</li>
+				<li class="list-group-item"> list item 2</li>
+				<li class="list-group-item"> list item 2</li>
+			</div>
+		</div>
+		<div class = "col-md-9">
+			<div class="card" >
+			  <img src="<%= contact.image %>" class="card-img-top" alt="contact">
+			  <div class="card-body">
+				<h5 class="card-title"><%= contact.firstName%> <%= contact.lastName%></h5>
+				<p class="card-text"><%-contact.streetAddress%></p>
+				<p class="card-text"><%-contact.city%></p>
+				<p class="card-text"><%-contact.state%></p>
+				<p class="card-text"><%-contact.zip%></p>
+				<p class="card-text">Registered on <%=contact.registered.toDateString()%></p>
+				<p class="card-text">Added on <%=contact.created.toDateString()%></p>
+			  </div>
+			  <div class="card-body text-right">
+				<a class="btn btn-outline-primary" href="/contacts">Go to list...</a>
+				<a class="btn btn-outline-secondary" href="/contacts/<%=contact._id%>/edit">Edit</a>
+				<form id="delete" action="/contacts/<%=contact._id%>?_method=DELETE" method="POST"> 
+						<button class="btn btn-outline-danger">Delete</button>
+				</form>
+			  </div>
+			</div> <!-- card -->
+		</div>  <!-- row -->
+	</div> <!-- container -->
 <%- include("../partials/footer") %>
+	
